@@ -1,0 +1,8 @@
+{
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.formatOnSave": true,
+  "go.lintOnSave": "package",
+  "go.lintTool": "golangci-lint",
+  "go.formatTool": "default"
+}
