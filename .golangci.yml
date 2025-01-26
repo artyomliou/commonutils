@@ -1,0 +1,37 @@
+linters:
+  enable:
+    - asciicheck
+    - bodyclose
+    - errcheck
+    - errname
+    - gochecknoinits
+    - goconst
+    - gocritic
+    - gocyclo
+    - gofmt
+    - gofumpt
+    - goimports
+    - goprintffuncname
+    - gosec
+    - gosimple
+    - gosimple
+    - govet
+    - ineffassign
+    - intrange
+    - lll
+    - misspell
+    - mnd
+    - musttag
+    - nakedret
+    - noctx
+    - nolintlint
+    - rowserrcheck
+    - staticcheck
+    - stylecheck
+    - unconvert
+    - unparam
+    - unused
+    - whitespace
+
+run:
+  timeout: 1m
