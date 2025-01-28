@@ -35,9 +35,8 @@ func ConvertLevelStringToSlogLevel(levelStr string) (slog.Level, error) {
 }
 
 func UseTextLogger(level slog.Level, w io.Writer) *slog.Logger {
-	handler := slog.NewTextHandler(w, &slog.HandlerOptions{
-		Level: level,
-	})
+	opts := getHandlerOptions(level)
+	handler := slog.NewTextHandler(w, opts)
 	logger := slog.New(handler)
 	slog.SetLogLoggerLevel(level)
 	slog.SetDefault(logger)
@@ -45,11 +44,20 @@ func UseTextLogger(level slog.Level, w io.Writer) *slog.Logger {
 }
 
 func UseJSONLogger(level slog.Level, w io.Writer) *slog.Logger {
-	handler := slog.NewJSONHandler(w, &slog.HandlerOptions{
-		Level: level,
-	})
+	opts := getHandlerOptions(level)
+	handler := slog.NewJSONHandler(w, opts)
 	logger := slog.New(handler)
 	slog.SetLogLoggerLevel(level)
 	slog.SetDefault(logger)
 	return logger
+}
+
+func getHandlerOptions(level slog.Level) *slog.HandlerOptions {
+	opts := &slog.HandlerOptions{
+		Level: level,
+	}
+	if level == slog.LevelDebug {
+		opts.AddSource = true
+	}
+	return opts
 }

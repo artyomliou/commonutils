@@ -69,6 +69,7 @@ func TestUseLoggerFuncs(t *testing.T) {
 						`level=DEBUG`,
 						`msg="test msg"`,
 						`user=testuser001`,
+						`source=`,
 					},
 				},
 				{
@@ -169,6 +170,10 @@ func TestUseLoggerFuncs(t *testing.T) {
 						`"level":"DEBUG"`,
 						`"msg":"test msg"`,
 						`"user":"testuser001"`,
+						`"source":`,
+						`"function":`,
+						`"file":`,
+						`"line":`,
 					},
 				},
 				{
